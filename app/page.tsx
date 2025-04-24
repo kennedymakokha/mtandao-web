@@ -28,7 +28,9 @@ const AppLandingPage: React.FC = () => {
     slides: {
       perView: 1,
     },
-    duration: 1000,
+    detailsChanged(slider) {
+      slider.container.style.transition = "transform 1s ease";
+    },
     drag: false,
     created(slider) {
       setInterval(() => slider.next(), 3000);
@@ -45,8 +47,8 @@ const AppLandingPage: React.FC = () => {
           <section className="max-w-5xl py-2 mx-auto px-4 grid md:grid-cols-2 gap-12 items-center justify-center">
             {/* Phone Mockup with Slide */}
             <div className="relative sm:w-[60%] w-[70%]  max-w-sm mx-auto">
-              <img src="/phone-frame.png" alt="Phone Frame" className="z-10 top-2 h-1/2 relative" />
-              <div className="absolute top-[13%] left-[5%] w-[73%] h-[75.5%] z-20 rounded-[2rem] overflow-hidden">
+              <img src="/photo-frame.png" alt="Phone Frame" className="z-10 top-2 h-1/2 relative" />
+              <div className="absolute top-[13%] left-[16.5%] w-[66.5%] h-[75.5%] z-20  overflow-hidden">
                 <div ref={sliderRef} className="keen-slider h-full">
                   {features.map((f, i) => (
                     <div className="keen-slider__slide flex flex-col items-center justify-center bg-white" key={i}>
