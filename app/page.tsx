@@ -3,7 +3,7 @@ import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import TypewriterEffect from "./components/typewriter";
-import { title } from "process";
+
 
 const features = [
   {
