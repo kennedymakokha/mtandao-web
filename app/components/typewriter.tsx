@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 
-const TypewriterEffect = ({ text, speed, title }: any) => {
+const TypewriterEffect = ({ text, speed, title }: {text:string,speed:number,title:boolean}) => {
     const [displayedText, setDisplayedText] = useState('');
     const [index, setIndex] = useState(0);
 
