@@ -2,6 +2,8 @@
 import React from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import TypewriterEffect from "./components/typewriter";
+import { title } from "process";
 
 const features = [
   {
@@ -40,7 +42,7 @@ const AppLandingPage: React.FC = () => {
   return (
     <div className="bg-gray-400 h-[100vh] overflow-hidden max-h-[100vh]  w-screen relative z-0">
       <img src="/bg.jpg" alt="Phone Frame" className="  " />
-      <div className="absolute bg-[#136207] opacity-90 inset-0 flex justify-center items-center z-10"></div>
+      <div className="absolute bg-[#007A5E] opacity-90 inset-0 flex justify-center items-center z-10"></div>
 
       <div className="absolute inset-0 flex justify-center items-center z-10">
         <div className=" w-full overflow-hidden text-gray-800">
@@ -74,13 +76,14 @@ const AppLandingPage: React.FC = () => {
                 ))}
               </ul>
               <header className="text-center  sm:py-16 px-4">
-                <h1 className="text-4xl font-bold text-[#ffaa1d] mb-4">Get Our Mobile App</h1>
-                <p className="text-slate-100 mb-6">
-                  Enjoy the best features, right in your pocket.
-                </p>
+                {TypewriterEffect({ text: "Get Our Mobile App", speed: 200, title: true })}
+
+                {/* <p className="text-slate-100 mb-6"> */}
+                  {TypewriterEffect({ text: "Enjoy the best features, right in your pocket.", speed: 100 })}
+                {/* </p> */}
                 <div className="flex justify-center gap-4">
                   <a href="#" className="bg-black text-white px-5 py-3 rounded-xl">App Store</a>
-                  <a href="#" className="bg-green-600 text-white px-5 py-3 rounded-xl">Google Play</a>
+                  <a href="#" className="bg-white text-[#007A5E] px-5 py-3 rounded-xl">Google Play</a>
                 </div>
               </header>
             </div>
