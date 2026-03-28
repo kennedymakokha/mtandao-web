@@ -1,5 +1,7 @@
 "use client";
+
 import React from "react";
+import Image from "next/image";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import TypewriterEffect from "./components/typewriter";
@@ -11,7 +13,7 @@ const features = [
   { title: "Cross-device sync", image: "/sync.png", icon: "🔄" },
 ];
 
-const AppLandingPage: React.FC = () => {
+export default function AppLandingPage() {
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slides: { perView: 1 },
@@ -23,10 +25,14 @@ const AppLandingPage: React.FC = () => {
 
   return (
     <div className="relative h-screen w-screen overflow-hidden bg-black">
+      
       {/* Background */}
-      <img
+      <Image
         src="/bg.jpg"
-        className="absolute inset-0 w-full h-full object-cover"
+        alt="Background"
+        fill
+        className="object-cover"
+        priority
       />
 
       {/* Gradient Overlay */}
@@ -34,13 +40,15 @@ const AppLandingPage: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center h-full px-6">
-        <section className="max-w-6xl w-full grid md:grid-cols-2 gap-16 items-center animate-fadeInUp">
+        <section className="max-w-6xl w-full grid md:grid-cols-2 gap-16 items-center">
 
           {/* Phone Mockup */}
-          <div className="relative w-[75%] sm:w-[60%] max-w-sm mx-auto drop-shadow-2xl animate-float">
-            <img
+          <div className="relative w-[75%] sm:w-[60%] max-w-sm mx-auto drop-shadow-2xl">
+            <Image
               src="/photo-frame.png"
               alt="Phone Frame"
+              width={400}
+              height={800}
               className="relative z-10"
             />
 
@@ -55,9 +63,11 @@ const AppLandingPage: React.FC = () => {
                     <h2 className="font-bold text-lg text-[#ffaa1d] text-center px-2">
                       {f.title}
                     </h2>
-                    <img
+                    <Image
                       src={f.image}
                       alt={f.title}
+                      width={300}
+                      height={500}
                       className="object-contain h-full w-full"
                     />
                   </div>
@@ -67,7 +77,7 @@ const AppLandingPage: React.FC = () => {
           </div>
 
           {/* Right Content */}
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-10 mt-1 shadow-xl border border-white/20 text-center md:text-left">
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-10 shadow-xl border border-white/20 text-center md:text-left">
             <TypewriterEffect text="Get Our Mobile App" speed={80} title />
             <TypewriterEffect
               text="Enjoy the best features, right in your pocket."
@@ -76,29 +86,12 @@ const AppLandingPage: React.FC = () => {
 
             {/* Buttons */}
             <div className="flex justify-center md:justify-start gap-4 mt-6">
-              <a className="bg-black hover:bg-gray-900 transition text-white px-6 py-3 rounded-xl shadow-lg cursor-pointer">
+              <a className="bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-xl shadow-lg cursor-pointer">
                 App Store
               </a>
-              <a className="bg-white hover:bg-gray-200 transition text-[#007A5E] px-6 py-3 rounded-xl shadow-lg cursor-pointer">
+              <a className="bg-white hover:bg-gray-200 text-[#007A5E] px-6 py-3 rounded-xl shadow-lg cursor-pointer">
                 Google Play
               </a>
-            </div>
-
-            {/* Feature List */}
-            <div className="hidden sm:block mt-10">
-              <h2 className="text-xl font-semibold text-white mb-4">
-                Key Features
-              </h2>
-              <ul className="space-y-4">
-                {features.map((f, i) => (
-                  <li key={i} className="flex items-center gap-3 text-gray-200">
-                    <span className="w-8 h-8 flex items-center justify-center bg-[#ffaa1d]/20 rounded-lg">
-                      {f.icon}
-                    </span>
-                    {f.title}
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </section>
@@ -110,6 +103,4 @@ const AppLandingPage: React.FC = () => {
       </footer>
     </div>
   );
-};
-
-export default AppLandingPage;
+}
