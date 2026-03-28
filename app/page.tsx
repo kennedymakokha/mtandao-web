@@ -18,7 +18,7 @@ import "keen-slider/keen-slider.min.css";
 const slides = [
   {
     type: "video",
-    src: "/screens/demo.mp4",
+    src: "/screens/dmo.mp4",
     title: "Live POS Demo",
   },
   {
